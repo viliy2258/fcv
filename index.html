@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Test</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        video {
+            width: 640px;
+            height: 480px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+<video id="video" autoplay></video>
+
+<script>
+    (function(){
+        const _0x12345 = document.getElementById('video');
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(_0x98765) {
+                _0x12345.srcObject = _0x98765;
+            })
+            .catch(function(_0x67890) {
+                console.log("Error accessing camera: ", _0x67890);
+            });
+        } else {
+            alert("Your browser does not support camera access.");
+        }
+    })();
+</script>
+
+</body>
+</html>
